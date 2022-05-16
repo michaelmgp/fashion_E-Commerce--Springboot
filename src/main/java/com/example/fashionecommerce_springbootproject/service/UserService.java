@@ -4,10 +4,12 @@ import com.example.fashionecommerce_springbootproject.dto.user.ResponseDto;
 import com.example.fashionecommerce_springbootproject.dto.user.SigninDto;
 import com.example.fashionecommerce_springbootproject.dto.user.SigninResponseDto;
 import com.example.fashionecommerce_springbootproject.dto.user.SignupDto;
+import com.example.fashionecommerce_springbootproject.exeptions.AuthenticationFailException;
 import com.example.fashionecommerce_springbootproject.exeptions.CustomException;
 import com.example.fashionecommerce_springbootproject.model.AuthenticationToken;
 import com.example.fashionecommerce_springbootproject.model.User;
 import com.example.fashionecommerce_springbootproject.repository.UserRepo;
+import org.apache.tomcat.websocket.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,7 +57,7 @@ public class UserService {
 
     private String hashPassword(String password) throws NoSuchAlgorithmException {
 
-        MessageDigest md = MessageDigest.getInstance("MDS");
+        MessageDigest md = MessageDigest.getInstance("MD5");
         md.update(password.getBytes());
         byte[] digest = md.digest();
         String hash = DatatypeConverter
@@ -65,6 +67,30 @@ public class UserService {
     }
 
     public SigninResponseDto sigIn(SigninDto signinDto) {
-        // fin
+        // find the user by email
+
+        User user = userRepo.findByEmail(signinDto.getEmail());
+
+        if(Objects.isNull(user)){
+            throw new AuthenticationFailException("user is not valid");
+        }
+
+        //hash the password
+        try {
+            if (!user.getPassword().equals(hashPassword(signinDto.getPassword()))){
+                throw  new AuthenticationFailException("Wrong Password");
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        //if password is match
+
+        AuthenticationToken token = authenticationService.getToken(user);
+
+        if (Objects.isNull(token)){
+            throw new CustomException("token is not present");
+        }
+
+        return new SigninResponseDto("succes", token.getToken());
     }
 }
