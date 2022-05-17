@@ -1,4 +1,4 @@
-package com.example.fashionecommerce_springbootproject.model;
+package com.example.fashionecommerce_springbootproject.domain.model;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,13 +1,10 @@
 package com.example.fashionecommerce_springbootproject.controller;
 
 
-import com.example.fashionecommerce_springbootproject.common.ApiResponse;
-import com.example.fashionecommerce_springbootproject.dto.DesignDto;
-import com.example.fashionecommerce_springbootproject.model.Category;
-import com.example.fashionecommerce_springbootproject.model.Design;
+import com.example.fashionecommerce_springbootproject.domain.common.ApiResponse;
+import com.example.fashionecommerce_springbootproject.domain.dto.DesignDto;
+import com.example.fashionecommerce_springbootproject.domain.model.Category;
 import com.example.fashionecommerce_springbootproject.repository.CategoryRepo;
-import com.example.fashionecommerce_springbootproject.repository.DesignRepo;
-import com.example.fashionecommerce_springbootproject.service.CategoryService;
 import com.example.fashionecommerce_springbootproject.service.DesignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

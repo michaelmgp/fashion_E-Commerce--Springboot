@@ -1,12 +1,10 @@
 package com.example.fashionecommerce_springbootproject.service;
 
 import com.example.fashionecommerce_springbootproject.exeptions.AuthenticationFailException;
-import com.example.fashionecommerce_springbootproject.model.AuthenticationToken;
-import com.example.fashionecommerce_springbootproject.model.User;
+import com.example.fashionecommerce_springbootproject.domain.model.AuthenticationToken;
+import com.example.fashionecommerce_springbootproject.domain.model.User;
 import com.example.fashionecommerce_springbootproject.repository.TokernRepo;
-import com.example.fashionecommerce_springbootproject.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;

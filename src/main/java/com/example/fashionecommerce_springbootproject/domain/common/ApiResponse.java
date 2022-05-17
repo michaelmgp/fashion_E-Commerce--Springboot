@@ -1,4 +1,4 @@
-package com.example.fashionecommerce_springbootproject.common;
+package com.example.fashionecommerce_springbootproject.domain.common;
 
 import java.time.LocalDateTime;
 

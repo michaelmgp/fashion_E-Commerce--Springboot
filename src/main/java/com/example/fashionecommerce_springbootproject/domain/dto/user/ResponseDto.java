@@ -1,4 +1,4 @@
-package com.example.fashionecommerce_springbootproject.dto.user;
+package com.example.fashionecommerce_springbootproject.domain.dto.user;
 
 public class ResponseDto {
 

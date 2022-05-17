@@ -1,12 +1,11 @@
 package com.example.fashionecommerce_springbootproject.service;
 
 
-import com.example.fashionecommerce_springbootproject.dto.DesignDto;
-import com.example.fashionecommerce_springbootproject.model.User;
-import com.example.fashionecommerce_springbootproject.model.Wishlist;
+import com.example.fashionecommerce_springbootproject.domain.dto.DesignDto;
+import com.example.fashionecommerce_springbootproject.domain.model.User;
+import com.example.fashionecommerce_springbootproject.domain.model.Wishlist;
 import com.example.fashionecommerce_springbootproject.repository.WishlistRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,8 +17,7 @@ public class WishlistService {
     @Autowired
     WishlistRepo wishlistRepo;
 
-    @Autowired
-    WishlistService wishlistService;
+
 
     @Autowired
     DesignService designService;

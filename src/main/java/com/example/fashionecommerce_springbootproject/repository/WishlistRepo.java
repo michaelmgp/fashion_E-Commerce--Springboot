@@ -1,7 +1,7 @@
 package com.example.fashionecommerce_springbootproject.repository;
 
-import com.example.fashionecommerce_springbootproject.model.User;
-import com.example.fashionecommerce_springbootproject.model.Wishlist;
+import com.example.fashionecommerce_springbootproject.domain.model.User;
+import com.example.fashionecommerce_springbootproject.domain.model.Wishlist;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
