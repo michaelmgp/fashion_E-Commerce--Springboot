@@ -29,10 +29,10 @@ public class UserService {
     @Transactional
     public ResponseDto signUp(SignupDto signupDto) {
 
+
         if (Objects.nonNull(userRepo.findByEmail(signupDto.getEmail()))) {
             throw new CustomException("User Already Resgistered");
         }
-
         String encryptedPassword = signupDto.getPassword();
 
         try {
