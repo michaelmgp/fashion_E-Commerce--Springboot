@@ -1,10 +1,10 @@
 package com.example.fashionecommerce_springbootproject.controller;
 
 
-import com.example.fashionecommerce_springbootproject.dto.user.ResponseDto;
-import com.example.fashionecommerce_springbootproject.dto.user.SigninDto;
-import com.example.fashionecommerce_springbootproject.dto.user.SigninResponseDto;
-import com.example.fashionecommerce_springbootproject.dto.user.SignupDto;
+import com.example.fashionecommerce_springbootproject.domain.dto.user.ResponseDto;
+import com.example.fashionecommerce_springbootproject.domain.dto.user.SigninDto;
+import com.example.fashionecommerce_springbootproject.domain.dto.user.SigninResponseDto;
+import com.example.fashionecommerce_springbootproject.domain.dto.user.SignupDto;
 import com.example.fashionecommerce_springbootproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
