@@ -1,6 +1,6 @@
 package com.example.fashionecommerce_springbootproject.service;
 
-import com.example.fashionecommerce_springbootproject.model.Category;
+import com.example.fashionecommerce_springbootproject.domain.model.Category;
 import com.example.fashionecommerce_springbootproject.repository.CategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,9 +1,10 @@
 package com.example.fashionecommerce_springbootproject.service;
 
 
-import com.example.fashionecommerce_springbootproject.dto.DesignDto;
-import com.example.fashionecommerce_springbootproject.model.Category;
-import com.example.fashionecommerce_springbootproject.model.Design;
+import com.example.fashionecommerce_springbootproject.domain.dto.DesignDto;
+import com.example.fashionecommerce_springbootproject.exeptions.DesignNotExistsException;
+import com.example.fashionecommerce_springbootproject.domain.model.Category;
+import com.example.fashionecommerce_springbootproject.domain.model.Design;
 import com.example.fashionecommerce_springbootproject.repository.DesignRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,5 +63,15 @@ public class DesignService {
         design.setName(designDto.getName());
         design.setPrice(designDto.getPrice());
         designRepo.save(design);
+    }
+
+    public Design findById(Integer designId) throws DesignNotExistsException {
+
+        Optional<Design> optionalDesign = designRepo.findById(designId);
+                if(optionalDesign.isEmpty()){
+                    throw new DesignNotExistsException("Product id is not valid " + designId );
+                }
+
+                return optionalDesign.get();
     }
 }

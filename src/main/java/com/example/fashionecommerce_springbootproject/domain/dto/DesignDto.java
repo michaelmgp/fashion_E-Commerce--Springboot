@@ -1,4 +1,4 @@
-package com.example.fashionecommerce_springbootproject.dto;
+package com.example.fashionecommerce_springbootproject.domain.dto;
 
 import com.sun.istack.NotNull;
 
@@ -61,4 +61,6 @@ public class DesignDto {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

@@ -1,15 +1,14 @@
 package com.example.fashionecommerce_springbootproject.service;
 
-import com.example.fashionecommerce_springbootproject.dto.user.ResponseDto;
-import com.example.fashionecommerce_springbootproject.dto.user.SigninDto;
-import com.example.fashionecommerce_springbootproject.dto.user.SigninResponseDto;
-import com.example.fashionecommerce_springbootproject.dto.user.SignupDto;
+import com.example.fashionecommerce_springbootproject.domain.dto.user.ResponseDto;
+import com.example.fashionecommerce_springbootproject.domain.dto.user.SigninDto;
+import com.example.fashionecommerce_springbootproject.domain.dto.user.SigninResponseDto;
+import com.example.fashionecommerce_springbootproject.domain.dto.user.SignupDto;
 import com.example.fashionecommerce_springbootproject.exeptions.AuthenticationFailException;
 import com.example.fashionecommerce_springbootproject.exeptions.CustomException;
-import com.example.fashionecommerce_springbootproject.model.AuthenticationToken;
-import com.example.fashionecommerce_springbootproject.model.User;
+import com.example.fashionecommerce_springbootproject.domain.model.AuthenticationToken;
+import com.example.fashionecommerce_springbootproject.domain.model.User;
 import com.example.fashionecommerce_springbootproject.repository.UserRepo;
-import org.apache.tomcat.websocket.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,10 +29,10 @@ public class UserService {
     @Transactional
     public ResponseDto signUp(SignupDto signupDto) {
 
+
         if (Objects.nonNull(userRepo.findByEmail(signupDto.getEmail()))) {
             throw new CustomException("User Already Resgistered");
         }
-
         String encryptedPassword = signupDto.getPassword();
 
         try {
@@ -62,8 +61,14 @@ public class UserService {
         byte[] digest = md.digest();
         String hash = DatatypeConverter
                 .printHexBinary(digest).toUpperCase();
-
         return hash;
+//        MessageDigest md = MessageDigest.getInstance("MD5");
+//        md.update(password.getBytes());
+//        byte[] digest = md.digest();
+//        String hash = DatatypeConverter
+//                .printHexBinary(digest).toUpperCase();
+//
+//        return hash;
     }
 
     public SigninResponseDto sigIn(SigninDto signinDto) {
