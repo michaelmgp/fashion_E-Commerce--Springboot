@@ -44,6 +44,7 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/e_commerce:latest
+
   deployment:
     name: Deployment
     runs-on: ubuntu-18.04
@@ -72,5 +73,5 @@ jobs:
             docker rmi michaelmgp/e_commerce:latest
             docker pull michaelmgp/e_commerce:latest
             docker start postgres
-            docker run -d --rm --name e_commerce -p 80:8080 --env-file dev.env --network e-commerce michaelmgp/e_commerce:latest
+            docker run -d --name e_commerce -p 80:8080 --env-file dev.env --network e-commerce michaelmgp/e_commerce:latest
   
