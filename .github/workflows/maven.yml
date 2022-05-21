@@ -44,7 +44,6 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/e_commerce:latest
-
   deployment:
     name: Deployment
     runs-on: ubuntu-18.04
