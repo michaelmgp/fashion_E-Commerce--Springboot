@@ -68,8 +68,9 @@ jobs:
           port: 22
           script: |
             docker stop e_commerce
+            docker stop postgres
             docker rmi michaelmgp/e_commerce:latest
             docker pull michaelmgp/e_commerce:latest
             docker start postgres
-            docker run -d --rm --name e_commerce -p 80:8080 --env-file=dev.env --network e-commerce michaelmgp/e_commerce:latest
+            docker run -d --rm --name e_commerce -p 80:8080 --env-file dev.env --network e-commerce michaelmgp/e_commerce:latest
   
