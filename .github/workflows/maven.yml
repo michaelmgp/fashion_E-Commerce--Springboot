@@ -43,7 +43,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/e_commerce_new:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/e_commerce:latest
 
   deployment:
     name: Deployment
@@ -68,9 +68,9 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            docker stop e_commerce_new
-            docker rmi michaelmgp/e_commerce_new:latest
-            docker pull michaelmgp/e_commerce_new:latest
+            docker stop e_commerce
+            docker rmi michaelmgp/e_commerce:latest
+            docker pull michaelmgp/e_commerce:latest
             docker start postgres
-            docker run -d --rm --name e_commerce -p 80:8080 --env-file dev.env --network e-commerce_new michaelmgp/e_commerce_new:latest
+            docker run -d --rm --name e_commerce -p 80:8080 --env-file dev.env --network e-commerce michaelmgp/e_commerce:latest
   
