@@ -68,8 +68,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            docker stop e_commerce
-            docker stop postgres
             docker rmi michaelmgp/e_commerce:latest
             docker pull michaelmgp/e_commerce:latest
             docker start postgres
